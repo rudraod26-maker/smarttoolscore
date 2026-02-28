@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "../articles";
+import AuthorBox from "@/components/AuthorBox";
 
 type Props = {
   params: { slug: string };
@@ -105,6 +106,8 @@ export default function ArticlePage({ params }: Props) {
           </section>
         ))}
       </div>
+
+      <AuthorBox />
 
       {/* FAQ Section */}
       {article.faqs && (
