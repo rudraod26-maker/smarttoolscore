@@ -22,7 +22,7 @@ export default function ArticlePage({ params }: Props) {
   const article = articles.find((a) => a.slug === params.slug);
   if (!article) return notFound();
 
-  const siteUrl = "https://yourdomain.com"; // change after deployment
+  const siteUrl = "https://smarttoolscore.com"; // change after deployment
 
   const articleSchema = {
     "@context": "https://schema.org",

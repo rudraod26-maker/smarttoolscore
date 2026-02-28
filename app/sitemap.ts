@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { articles } from "./ai-tools/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://yourdomain.com"; // change after deployment
+  const siteUrl = "https://smarttoolscore.com"; // change after deployment
 
   const articleUrls = articles.map((article) => ({
     url: `${siteUrl}/ai-tools/${article.slug}`,
