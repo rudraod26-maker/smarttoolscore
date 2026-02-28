@@ -1,35 +1,49 @@
+export const metadata = {
+  title: "Privacy Policy | SmartToolScore",
+  description: "Privacy Policy for SmartToolScore.com",
+};
+
 export default function PrivacyPolicy() {
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
-      <h1 className="text-4xl font-bold">Privacy Policy</h1>
+    <div className="max-w-4xl mx-auto space-y-6">
+      <h1 className="text-3xl font-bold">Privacy Policy</h1>
 
       <p>
-        SmartToolsAI respects your privacy. This page explains how we collect,
-        use and protect your information.
+        At SmartToolScore (https://smarttoolscore.com), we respect your privacy.
+        This policy explains how we collect, use, and protect your information.
       </p>
 
-      <h2 className="text-2xl font-semibold">Information We Collect</h2>
+      <h2 className="text-xl font-semibold">Information We Collect</h2>
       <p>
-        We may collect non-personal information such as browser type, device
-        type and pages visited to improve user experience.
+        We may collect non-personal information such as browser type,
+        device information, and usage data through analytics tools.
       </p>
 
-      <h2 className="text-2xl font-semibold">Cookies</h2>
+      <h2 className="text-xl font-semibold">Cookies</h2>
       <p>
-        We may use cookies and third-party services such as Google AdSense to
-        serve ads and analyze traffic.
+        We use cookies to improve user experience and analyze traffic.
+        Third-party vendors, including Google, may use cookies to serve ads
+        based on your previous visits to this website or other websites.
       </p>
 
-      <h2 className="text-2xl font-semibold">Third-Party Services</h2>
+      <h2 className="text-xl font-semibold">Google AdSense</h2>
       <p>
-        We may use third-party advertising networks which may use cookies to
-        serve relevant ads.
+        We may use Google AdSense to display advertisements.
+        Google uses cookies to serve ads based on user interests.
+        Users may opt out of personalized advertising by visiting
+        Google Ads Settings.
       </p>
 
-      <h2 className="text-2xl font-semibold">Contact</h2>
+      <h2 className="text-xl font-semibold">Third-Party Links</h2>
       <p>
-        If you have questions regarding this privacy policy, please contact us
-        through our Contact page.
+        Our website may contain links to external websites.
+        We are not responsible for the privacy practices of those sites.
+      </p>
+
+      <h2 className="text-xl font-semibold">Contact Us</h2>
+      <p>
+        If you have questions regarding this policy, contact us at:
+        support@smarttoolscore.com
       </p>
     </div>
   );
