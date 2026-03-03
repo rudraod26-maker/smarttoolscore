@@ -3,7 +3,7 @@ import WordCounterClient from "./WordCounterClient";
 import AdBlock from "@/components/AdBlock";
 
 export const metadata: Metadata = {
-  title: "Word Counter Tool (Free & Online) | SmartToolsAI",
+  title: "Word Counter Tool (Free & Online) | SmartToolsCore",
   description:
     "Free online word counter tool to count words, characters, sentences and paragraphs instantly. Fast and easy to use.",
   keywords: [

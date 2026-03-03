@@ -3,7 +3,7 @@ import LoanCalculatorClient from "./LoanCalculatorClient";
 import AdBlock from "@/components/AdBlock";
 
 export const metadata: Metadata = {
-  title: "Loan Calculator (EMI & Interest) | SmartToolsAI",
+  title: "Loan Calculator (EMI & Interest) | SmartToolsCore",
   description:
     "Free online loan calculator to estimate monthly EMI, total interest and total payment instantly. Simple and accurate.",
   keywords: [

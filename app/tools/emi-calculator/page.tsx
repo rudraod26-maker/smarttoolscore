@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import EMICalculatorClient from "./EMICalculatorClient";
 
 export const metadata: Metadata = {
-  title: "EMI Calculator (Monthly Loan EMI) | SmartToolsAI",
+  title: "EMI Calculator (Monthly Loan EMI) | SmartToolsCore",
   description:
     "Free EMI calculator to calculate your monthly installment, total interest and total repayment amount instantly.",
   keywords: [

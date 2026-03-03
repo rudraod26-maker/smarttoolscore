@@ -13,7 +13,7 @@ export default function Contact() {
       </p>
 
       <p className="font-semibold">
-        support@smarttoolscore.com
+        smarttoolscore@gmail.com
       </p>
 
       <p>

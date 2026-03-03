@@ -1,78 +1,140 @@
-import AdBlock from "@/components/AdBlock";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import Link from "next/link";
 import { articles } from "../articles";
+import Script from "next/script";
+import type { Metadata } from "next";
 import AuthorBox from "@/components/AuthorBox";
 
-type Props = {
-  params: { slug: string };
-};
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const article = articles.find((a) => a.slug === params.slug);
-  if (!article) return {};
+/* =========================
+   Generate Metadata
+========================= */
+export async function generateMetadata(
+  { params }: PageProps
+): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles.find((a) => a.slug === slug);
+
+  if (!article) {
+    return {
+      title: "Article Not Found | SmartToolsCore",
+    };
+  }
 
   return {
-    title: article.title,
+    title: `${article.title} | SmartToolsCore`,
     description: article.description,
+    alternates: {
+      canonical: `https://smarttoolscore.com/ai-tools/${slug}`,
+    },
   };
 }
 
-export default function ArticlePage({ params }: Props) {
-  const article = articles.find((a) => a.slug === params.slug);
-  if (!article) return notFound();
+/* =========================
+   Article Page
+========================= */
+export default async function ArticlePage({ params }: PageProps) {
+  const { slug } = await params;
+  const article = articles.find((a) => a.slug === slug);
 
-  const siteUrl = "https://smarttoolscore.com"; // change after deployment
+  if (!article) {
+    notFound();
+  }
 
+  /* =========================
+     Detect Finance Articles
+  ========================= */
+  const isFinanceArticle =
+    slug.includes("loan") ||
+    slug.includes("credit") ||
+    slug.includes("interest") ||
+    slug.includes("debt") ||
+    slug.includes("emi");
+
+  /* =========================
+     FAQ Schema (Finance Only)
+  ========================= */
+  const faqSchema = isFinanceArticle
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How can I reduce total loan interest?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "You can reduce loan interest by making prepayments, choosing shorter tenure, improving credit score, and refinancing when rates drop."
+            }
+          },
+          {
+            "@type": "Question",
+            name: "What is a good credit score for loan approval?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Most lenders prefer a credit score above 700 for better approval chances and lower interest rates."
+            }
+          },
+          {
+            "@type": "Question",
+            name: "What is ideal debt-to-income ratio?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "A debt-to-income ratio below 40% is generally considered healthy for loan approval."
+            }
+          }
+        ]
+      }
+    : null;
+
+  /* =========================
+     BlogPosting Schema
+  ========================= */
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: article.title,
     description: article.description,
     author: {
       "@type": "Organization",
-      name: "SmartToolsAI",
+      name: "SmartToolsCore Editorial Team",
     },
     publisher: {
       "@type": "Organization",
-      name: "SmartToolsAI",
+      name: "SmartToolsCore",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://smarttoolscore.com/logo.png",
+      },
     },
-    datePublished: "2026-01-01",
-    mainEntityOfPage: `${siteUrl}/ai-tools/${article.slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://smarttoolscore.com/ai-tools/${slug}`,
+    },
   };
 
-  const faqSchema = article.faqs
-    ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: article.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      }
-    : null;
-
-  const relatedArticles = articles
-    .filter((a) => a.slug !== params.slug)
-    .slice(0, 3);
-
   return (
-    <article className="max-w-3xl mx-auto">
+    <main className="max-w-3xl mx-auto px-4 py-10">
 
-      {/* JSON-LD Schemas */}
-      <script
+      {/* =========================
+         Article Schema
+      ========================= */}
+      <Script
+        id="article-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(articleSchema),
         }}
       />
+
+      {/* =========================
+         FAQ Schema (Finance Only)
+      ========================= */}
       {faqSchema && (
-        <script
+        <Script
+          id="faq-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(faqSchema),
@@ -80,94 +142,35 @@ export default function ArticlePage({ params }: Props) {
         />
       )}
 
-      {/* Title */}
-      <header className="mb-10 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          {article.title}
-        </h1>
-        <p className="text-lg text-gray-600">
-          {article.intro}
-        </p>
-      </header>
+      {/* =========================
+         Article Title
+      ========================= */}
+      <h1 className="text-3xl font-bold mb-6">
+        {article.title}
+      </h1>
 
-      <div className="h-px bg-gray-200 mb-10"></div>
-      <AdBlock />
-
-      {/* Content */}
-      <div className="space-y-12">
+      {/* =========================
+         Article Content
+      ========================= */}
+      <div className="space-y-8">
         {article.sections.map((section, index) => (
-          <section key={index} className="space-y-4">
-            <h2 className="text-2xl font-semibold border-l-4 border-blue-500 pl-4">
+          <section key={index}>
+            <h2 className="text-xl font-semibold mb-3">
               {section.heading}
             </h2>
-            <p className="text-gray-700 leading-relaxed text-lg"
-            dangerouslySetInnerHTML={{ __html: section.content }}
-            />    
+            <div
+              className="text-gray-700 leading-relaxed space-y-3"
+              dangerouslySetInnerHTML={{ __html: section.content }}
+            />
           </section>
         ))}
       </div>
 
-      <AuthorBox />
+      {/* =========================
+         Author Box (Finance Only)
+      ========================= */}
+      {isFinanceArticle && <AuthorBox />}
 
-      {/* FAQ Section */}
-      {article.faqs && (
-        <div className="mt-16">
-          <h3 className="text-2xl font-semibold mb-6">
-            Frequently Asked Questions
-          </h3>
-
-          <div className="space-y-6">
-            {article.faqs.map((faq, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg">
-                <h4 className="font-semibold mb-2">
-                  {faq.question}
-                </h4>
-                <p className="text-gray-700">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      <AdBlock />
-      {/* Related Articles */}
-      <div className="mt-20">
-        <h3 className="text-2xl font-semibold mb-6">
-          Related Articles
-        </h3>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {relatedArticles.map((related) => (
-            <Link
-              key={related.slug}
-              href={`/ai-tools/${related.slug}`}
-              className="bg-white p-6 shadow rounded hover:shadow-lg transition"
-            >
-              <h4 className="font-semibold mb-2">
-                {related.title}
-              </h4>
-              <p className="text-sm text-gray-600">
-                {related.description}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div className="mt-16 p-6 bg-blue-50 rounded-lg text-center">
-        <h3 className="text-xl font-semibold mb-2">
-          Explore More AI Tools
-        </h3>
-        <Link
-          href="/ai-tools"
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition"
-        >
-          View All AI Tools
-        </Link>
-      </div>
-
-    </article>
+    </main>
   );
 }

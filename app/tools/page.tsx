@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Free Online Tools (Fast & Easy) | SmartToolsAI",
+  title: "Free Online Tools (Fast & Easy) | SmartToolsCore",
   description:
     "Use free online tools including calculators, text utilities, productivity tools and more. Fast, simple and completely free.",
 };

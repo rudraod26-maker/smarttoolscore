@@ -69,7 +69,7 @@ export default function Home() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <Link href="/ai-tools/how-emi-calculation-works" className="p-6 bg-white shadow rounded-lg hover:shadow-lg transition">
+          <Link href="/ai-tools/how-emi-calculation-works-2026" className="p-6 bg-white shadow rounded-lg hover:shadow-lg transition">
             <h3 className="font-semibold mb-2">
               How EMI Calculation Works
             </h3>

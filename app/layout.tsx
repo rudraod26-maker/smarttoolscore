@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best AI Tools & Free Online Tools 2026 | SmartToolsAI",
+  title: "Best AI Tools & Free Online Tools 2026 | SmartToolsCore",
   description:
     "Discover the best AI tools and free online utilities for productivity, business and students. Compare, review and use powerful tools.",
   keywords: [
@@ -24,11 +24,10 @@ export default function RootLayout({
       <body className="bg-gray-50 text-gray-900 min-h-screen">
         <header className="bg-white shadow-md p-4">
           <div className="max-w-6xl mx-auto flex justify-between">
-            <h1 className="text-xl font-bold">SmartToolsAI</h1>
+            <h1 className="text-xl font-bold">SmartToolsCore</h1>
             <nav className="space-x-6 text-sm">
               <a href="/ai-tools">AI Tools</a>
               <a href="/tools">Free Tools</a>
-              <a href="/blog">Blog</a>
               <a href="/finance">Finance</a>
             </nav>
           </div>
@@ -44,7 +43,7 @@ export default function RootLayout({
     <a href="/contact">Contact</a>
   </div>
 
-  <p>© 2026 SmartToolsAI. All rights reserved.</p>
+  <p>© 2026 SmartToolsCore. All rights reserved.</p>
 </footer>
       </body>
     </html>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best AI Tools for Students (2026 Guide) | SmartToolsAI",
+  title: "Best AI Tools for Students (2026 Guide) | SmartToolsCore",
   description:
     "Discover the best AI tools for students in 2026. Free and paid tools for writing, studying, coding and productivity.",
   keywords: [

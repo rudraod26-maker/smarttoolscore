@@ -2,7 +2,7 @@ import Link from "next/link";
 import { articles } from "../ai-tools/articles";
 
 export const metadata = {
-  title: "Finance Guides & Loan Calculators | SmartToolsAI",
+  title: "Finance Guides & Loan Calculators | SmartToolsCore",
   description:
     "Explore finance guides, EMI calculation tutorials, loan comparisons and interest rate explanations.",
 };
