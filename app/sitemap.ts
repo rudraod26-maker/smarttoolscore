@@ -1,55 +1,34 @@
 import { MetadataRoute } from "next";
-import { articles } from "./ai-tools/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://smarttoolscore.com"; // change after deployment
-
-  const articleUrls = articles.map((article) => ({
-    url: `${siteUrl}/ai-tools/${article.slug}`,
-    lastModified: new Date(),
-  }));
-
   return [
     {
-      url: siteUrl,
+      url: "https://smarttoolscore.com",
       lastModified: new Date(),
     },
     {
-      url: `${siteUrl}/finance`,
+      url: "https://smarttoolscore.com/tools",
       lastModified: new Date(),
     },
     {
-      url: `${siteUrl}/ai-tools`,
+      url: "https://smarttoolscore.com/ai-tools",
       lastModified: new Date(),
     },
     {
-      url: `${siteUrl}/tools/emi-calculator`,
+      url: "https://smarttoolscore.com/about",
       lastModified: new Date(),
     },
     {
-      url: `${siteUrl}/tools/loan-calculator`,
+      url: "https://smarttoolscore.com/contact",
       lastModified: new Date(),
     },
     {
-      url: `${siteUrl}/tools/word-counter`,
+      url: "https://smarttoolscore.com/privacy",
       lastModified: new Date(),
     },
     {
-      url: `${siteUrl}/privacy-policy`,
+      url: "https://smarttoolscore.com/terms",
       lastModified: new Date(),
     },
-    {
-      url: `${siteUrl}/terms`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${siteUrl}/about`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${siteUrl}/contact`,
-      lastModified: new Date(),
-    },
-    ...articleUrls,
   ];
 }
