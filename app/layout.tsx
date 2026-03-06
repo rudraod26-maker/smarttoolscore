@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=pub-4843021554886377"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4843021554886377"
         crossOrigin="anonymous" />
       </head>
       <body className="bg-white text-gray-900">
