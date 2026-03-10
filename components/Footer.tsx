@@ -24,6 +24,12 @@ export default function Footer() {
           <Link href="/terms" className="hover:text-black">
             Terms & Conditions
           </Link>
+
+          <Link href="/disclaimer" className="hover:text-black">
+            Disclaimer
+          </Link>
+
+
         </div>
 
         {/* Copyright */}
