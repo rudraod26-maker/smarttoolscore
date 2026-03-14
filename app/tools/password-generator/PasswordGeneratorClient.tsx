@@ -140,6 +140,45 @@ export default function PasswordGeneratorClient() {
           Strong passwords include uppercase, lowercase, numbers, and symbols.
           Longer passwords provide better security protection.
         </p>
+
+          <section style={{ marginTop: "50px" }}>
+  <h2>About This Password Generator</h2>
+
+  <p>
+    The SmartToolsCore Password Generator helps users create strong and secure
+    passwords instantly. Strong passwords are essential for protecting online
+    accounts from hacking attempts, brute-force attacks, and data breaches.
+  </p>
+
+  <p>
+    This tool allows you to customize password length and include uppercase
+    letters, lowercase letters, numbers and symbols. Using a combination of
+    characters makes passwords significantly harder to crack.
+  </p>
+
+  <h2>Why Strong Passwords Are Important</h2>
+
+  <p>
+    Weak passwords remain one of the most common causes of account compromise.
+    Cybersecurity experts recommend using long and complex passwords for
+    important accounts such as email, banking and social media platforms.
+  </p>
+
+  <p>
+    A secure password should contain a mix of letters, numbers and special
+    characters. It should also be unique for every account you use.
+  </p>
+
+  <h2>How to Use This Password Generator</h2>
+
+  <ul>
+    <li>Select the desired password length.</li>
+    <li>Choose whether to include uppercase letters, lowercase letters, numbers and symbols.</li>
+    <li>Click the "Generate Password" button.</li>
+    <li>Copy the generated password and use it for your account.</li>
+  </ul>
+</section>
+
       </div>
     </div>
   );

@@ -55,6 +55,61 @@ function StatCard({
     <div className="bg-white p-4 shadow rounded">
       <h2 className="text-xl font-bold">{value}</h2>
       <p className="text-gray-600 text-sm">{label}</p>
+
+      <section style={{ marginTop: "50px", lineHeight: "1.7" }}>
+  <h2>About This Word Counter Tool</h2>
+
+  <p>
+    The SmartToolsCore Word Counter is a simple online utility that helps users
+    quickly calculate the number of words, characters, sentences and paragraphs
+    in any piece of text. Writers, students, bloggers and professionals often
+    need to track word limits when preparing essays, articles or reports.
+  </p>
+
+  <p>
+    This tool provides instant results as you type or paste text into the editor.
+    It eliminates the need to manually count words and helps ensure that your
+    content meets specific word limits required for assignments, blog posts,
+    social media captions or SEO articles.
+  </p>
+
+  <h2>Why Word Counting Matters</h2>
+
+  <p>
+    Word limits are important in many fields. Academic assignments often have
+    strict word requirements, while SEO articles typically perform best within
+    certain length ranges. Bloggers and content creators also track word counts
+    to optimize readability and search engine ranking.
+  </p>
+
+  <p>
+    A reliable word counter helps writers maintain consistency, avoid exceeding
+    limits, and structure their content more effectively.
+  </p>
+
+  <h2>How to Use the Word Counter</h2>
+
+  <ul>
+    <li>Paste or type your text into the editor.</li>
+    <li>The tool will automatically count words and characters.</li>
+    <li>View statistics such as sentences and paragraphs.</li>
+    <li>Edit your text until it reaches the desired length.</li>
+  </ul>
+
+  <h2>Who Can Use This Tool</h2>
+
+  <p>
+    The SmartToolsCore Word Counter is useful for students writing essays,
+    bloggers creating articles, marketers preparing social media posts, and
+    professionals drafting reports or documentation.
+  </p>
+
+  <p>
+    Because the tool runs entirely in your browser, your text remains private
+    and is never stored or shared.
+  </p>
+</section>
+
     </div>
   );
 }
