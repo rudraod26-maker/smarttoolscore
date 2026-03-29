@@ -17,14 +17,14 @@ export default function HomePage() {
 
   // ✅ latest articles
   const latestAI = articles
-  .filter((a) => a.category === "AI")
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  .slice(0, 3);
+    .filter((a) => a.category === "AI")
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
-const latestFinance = articles
-  .filter((a) => a.category === "Finance")
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  .slice(0, 3);
+  const latestFinance = articles
+    .filter((a) => a.category === "Finance")
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
   return (
     <div className="space-y-24">
@@ -116,81 +116,81 @@ const latestFinance = articles
 
       {/* ================= AI ARTICLE ================= */}
       {latestAI.length > 0 && (
-  <section>
-    <h2 className="text-2xl font-semibold text-white mb-4">
-      🧠 Latest AI Guides
-    </h2>
+        <section>
+          <h2 className="text-2xl font-semibold text-white mb-4">
+            🧠 Latest AI Guides
+          </h2>
 
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl">
-      {latestAI.map((article) => (
-        <Link key={article.slug} href={`/ai-tools/${article.slug}`}>
-          <div className="bg-[#111827] border border-gray-800 rounded-xl overflow-hidden 
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-full">
+            {latestAI.map((article) => (
+              <Link key={article.slug} href={`/ai-tools/${article.slug}`}>
+                <div className="bg-[#111827] border border-gray-800 rounded-xl overflow-hidden 
             hover:scale-[1.02] transition">
 
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-40 object-cover"
-            />
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-40 object-cover"
+                  />
 
-            <div className="p-5">
-              <h3 className="text-white text-lg font-semibold">
-                {article.title}
-              </h3>
-              <p className="text-gray-400 text-sm mt-2 line-clamp-2">
-                {article.description}
-              </p>
+                  <div className="p-5">
+                    <h3 className="text-white text-lg font-semibold">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm mt-2 line-clamp-2">
+                      {article.description}
+                    </p>
 
-              <span className="text-blue-400 text-sm mt-3 inline-block">
-                Read full guide →
-              </span>
-            </div>
+                    <span className="text-blue-400 text-sm mt-3 inline-block">
+                      Read full guide →
+                    </span>
+                  </div>
 
+                </div>
+              </Link>
+            ))}
           </div>
-        </Link>
-      ))}
-    </div>
-  </section>
-)}
+        </section>
+      )}
 
       {/* ================= FINANCE ARTICLE ================= */}
       {latestFinance.length > 0 && (
-  <section>
-    <h2 className="text-2xl font-semibold text-white mb-4">
-      💰 Latest Finance Guides
-    </h2>
+        <section>
+          <h2 className="text-2xl font-semibold text-white mb-4">
+            💰 Latest Finance Guides
+          </h2>
 
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl">
-      {latestFinance.map((article) => (
-        <Link key={article.slug} href={`/finance/${article.slug}`}>
-          <div className="bg-[#111827] border border-gray-800 rounded-xl overflow-hidden 
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-full">
+            {latestFinance.map((article) => (
+              <Link key={article.slug} href={`/finance/${article.slug}`}>
+                <div className="bg-[#111827] border border-gray-800 rounded-xl overflow-hidden 
             hover:scale-[1.02] transition">
 
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-40 object-cover"
-            />
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-40 object-cover"
+                  />
 
-            <div className="p-5">
-              <h3 className="text-white text-lg font-semibold">
-                {article.title}
-              </h3>
-              <p className="text-gray-400 text-sm mt-2 line-clamp-2">
-                {article.description}
-              </p>
+                  <div className="p-5">
+                    <h3 className="text-white text-lg font-semibold">
+                      {article.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm mt-2 line-clamp-2">
+                      {article.description}
+                    </p>
 
-              <span className="text-green-400 text-sm font-medium mt-3 inline-block">
-            Read full guide →
-          </span>
-            </div>
+                    <span className="text-green-400 text-sm font-medium mt-3 inline-block">
+                      Read full guide →
+                    </span>
+                  </div>
 
+                </div>
+              </Link>
+            ))}
           </div>
-        </Link>
-      ))}
-    </div>
-  </section>
-)}
+        </section>
+      )}
 
     </div>
   );
