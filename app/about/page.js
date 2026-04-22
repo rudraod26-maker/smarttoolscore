@@ -3,75 +3,91 @@ export default function AboutPage() {
     <main className="max-w-6xl mx-auto px-6 py-16">
 
       {/* Hero */}
-      <section className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <section className="text-center mb-20">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5">
           About SmartToolsCore
         </h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Empowering writers, students, and creators with simple, powerful AI tools 
-          to write better, faster, and smarter.
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          Building a modern platform focused on simplicity, clarity, and smarter digital experiences powered by AI.
         </p>
       </section>
 
       {/* Who We Are */}
-      <section className="grid md:grid-cols-2 gap-10 items-center mb-20">
-
-        <div>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+      <section className="mb-24">
+        <div className="bg-linear-to-br from-white to-gray-50 border border-gray-100 rounded-3xl p-10 md:p-14 shadow-sm">
+          <h2 className="text-3xl font-semibold text-gray-900 mb-6 text-center">
             Who We Are
           </h2>
-          <p className="text-gray-600 mb-4">
-            SmartToolsCore is a modern platform built to simplify writing using AI. 
-            We focus on creating tools that are fast, reliable, and easy to use for everyone.
+
+          <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            SmartToolsCore is a modern digital platform created with a simple vision — 
+            to make everyday tasks easier, faster, and more efficient using intelligent technology. 
+            We focus on building clean, reliable, and accessible solutions that anyone can use 
+            without complexity.
           </p>
-          <p className="text-gray-600">
-            Whether you're a student working on assignments, a blogger creating content, 
-            or a professional improving communication — our tools are designed for you.
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="grid md:grid-cols-2 gap-8 mb-24">
+
+        <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            Our Mission
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            Our mission is to simplify digital experiences through thoughtful design 
+            and intelligent systems. We aim to remove friction, save time, and make 
+            powerful technology accessible to everyone in a seamless way.
           </p>
         </div>
 
-        <div className="bg-linear-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-sm">
-          <p className="text-gray-700 text-lg leading-relaxed">
-            "Our mission is to make high-quality writing accessible to everyone 
-            through the power of AI."
+        <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            Our Vision
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            We envision a future where technology feels effortless — where users can 
+            achieve more with less effort, and where digital tools work naturally 
+            alongside people to enhance productivity and creativity.
           </p>
         </div>
 
       </section>
 
-      {/* What We Offer */}
-      <section className="mb-20">
+      {/* Our Goals */}
+      <section className="mb-24">
 
-        <h2 className="text-2xl font-semibold text-center text-gray-900 mb-10">
-          What We Offer
+        <h2 className="text-3xl font-semibold text-center text-gray-900 mb-12">
+          Our Goals
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
 
-          <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-900 mb-2">
-              AI-Powered Tools
+          <div className="bg-white border border-gray-100 p-7 rounded-3xl shadow-sm">
+            <h3 className="font-semibold text-lg text-gray-900 mb-3">
+              Simplicity First
             </h3>
-            <p className="text-gray-600 text-sm">
-              Fast and accurate tools like our AI paraphraser to improve your writing instantly.
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Create products that are easy to use, clean in design, and free from unnecessary complexity.
             </p>
           </div>
 
-          <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-900 mb-2">
-              Helpful Blogs
+          <div className="bg-white border border-gray-100 p-7 rounded-3xl shadow-sm">
+            <h3 className="font-semibold text-lg text-gray-900 mb-3">
+              Continuous Improvement
             </h3>
-            <p className="text-gray-600 text-sm">
-              Learn writing tips, SEO strategies, and productivity hacks.
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Constantly evolve and improve based on user needs, feedback, and changing technology.
             </p>
           </div>
 
-          <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
-            <h3 className="font-semibold text-gray-900 mb-2">
-              Simple Experience
+          <div className="bg-white border border-gray-100 p-7 rounded-3xl shadow-sm">
+            <h3 className="font-semibold text-lg text-gray-900 mb-3">
+              Accessibility for All
             </h3>
-            <p className="text-gray-600 text-sm">
-              Clean, fast, and user-friendly design with no complexity.
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Ensure that our platform remains usable and valuable for a wide range of users globally.
             </p>
           </div>
 
@@ -79,57 +95,20 @@ export default function AboutPage() {
 
       </section>
 
-      {/* Why Choose Us */}
-      <section className="mb-20">
+      {/* Support */}
+      <section className="text-center bg-gray-900 text-white rounded-3xl p-12 shadow-sm">
 
-        <h2 className="text-2xl font-semibold text-center text-gray-900 mb-10">
-          Why Choose SmartToolsCore
+        <h2 className="text-2xl font-semibold mb-4">
+          Need Help?
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6 text-center">
-
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Fast & Easy</h3>
-            <p className="text-gray-600 text-sm">
-              No complicated setup. Just paste and get results instantly.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Accurate AI</h3>
-            <p className="text-gray-600 text-sm">
-              High-quality rewriting while keeping original meaning intact.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">User Friendly</h3>
-            <p className="text-gray-600 text-sm">
-              Designed for everyone with a clean and modern interface.
-            </p>
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* CTA */}
-      <section className="text-center bg-blue-50 border border-blue-100 rounded-2xl p-10 shadow-sm">
-
-        <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-          Start Using AI Tools Today
-        </h2>
-
-        <p className="text-gray-600 mb-6">
-          Experience smarter writing with our AI-powered paraphrasing tool.
+        <p className="text-gray-300 mb-4">
+          For any questions, feedback, or support, feel free to reach out to us.
         </p>
 
-        <a
-          href="/tools/paraphraser"
-          className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition shadow"
-        >
-          Try AI Paraphraser
-        </a>
+        <p className="text-lg font-medium">
+          support@smarttoolscore.com
+        </p>
 
       </section>
 

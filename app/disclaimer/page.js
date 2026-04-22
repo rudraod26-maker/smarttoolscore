@@ -1,14 +1,16 @@
 export default function DisclaimerPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16">
-
       {/* Heading */}
       <div className="text-center mb-14">
         <h1 className="text-4xl font-bold text-gray-900 mb-3">
           Disclaimer
         </h1>
-        <p className="text-gray-600">
-          Important information about the use of SmartToolsCore and its services.
+        <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          This Disclaimer outlines important information regarding the use of SmartToolsCore and the limitations of the content provided on this website.
+        </p>
+        <p className="text-sm text-gray-500 mt-2">
+          Last updated: April 12, 2026
         </p>
       </div>
 
@@ -18,20 +20,27 @@ export default function DisclaimerPage() {
         {/* Intro */}
         <section className="bg-gray-50 border border-gray-200 p-6 rounded-2xl shadow-sm">
           <p>
-            The information and tools provided on <strong>SmartToolsCore </strong> 
-             are for general informational and educational purposes only.
+            The information provided on <strong>SmartToolsCore</strong> is for general informational and educational purposes only. While we strive to keep the content accurate and up to date, we make no guarantees of any kind regarding completeness, reliability, or accuracy.
           </p>
         </section>
 
-        {/* AI Disclaimer */}
+        {/* General Use */}
         <section>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">
-            AI-Generated Content
+            General Information
           </h2>
           <p>
-            Our platform uses artificial intelligence to generate and rewrite content. 
-            While we strive for accuracy, we do not guarantee that the output will always 
-            be correct, complete, or reliable.
+            All content on this website is provided in good faith for general use. Any action you take based on the information found on this website is strictly at your own risk.
+          </p>
+        </section>
+
+        {/* AI Content */}
+        <section>
+          <h2 className="text-xl font-semibold text-gray-900 mb-3">
+            Generated Content
+          </h2>
+          <p>
+            Some content on this website may be generated or processed using automated systems. While efforts are made to ensure useful and relevant output, we do not guarantee that all content will always be accurate, complete, or suitable for every purpose. Users are encouraged to review and verify information before relying on it.
           </p>
         </section>
 
@@ -41,42 +50,37 @@ export default function DisclaimerPage() {
             No Professional Advice
           </h2>
           <p>
-            The content generated through our tools should not be considered professional, 
-            legal, academic, or expert advice. Users should verify and review content before use.
+            The content available on SmartToolsCore does not constitute professional advice of any kind, including but not limited to legal, financial, academic, or technical advice. You should seek appropriate professional guidance where necessary.
           </p>
         </section>
 
-        {/* External Links */}
+        {/* External Content */}
         <section>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">
-            External Links
+            External Content
           </h2>
           <p>
-            Our website may contain links to third-party websites. We do not control or take 
-            responsibility for the content, policies, or practices of these external sites.
+            The website may reference or display content from external sources or third parties. We do not control or guarantee the accuracy, relevance, or reliability of such external content and are not responsible for any outcomes resulting from its use.
           </p>
         </section>
 
-        {/* Ads */}
+        {/* Advertising */}
         <section>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">
             Advertising Disclaimer
           </h2>
           <p>
-            We may display advertisements through third-party networks such as Google AdSense. 
-            These ads are provided by external partners, and we are not responsible for the 
-            products or services advertised.
+            SmartToolsCore may display advertisements through third-party advertising partners, including services such as Google AdSense. These advertisements are provided by external networks, and we do not endorse or take responsibility for the products, services, or claims made in such ads.
           </p>
         </section>
 
-        {/* Liability */}
+        {/* Limitation */}
         <section>
           <h2 className="text-xl font-semibold text-gray-900 mb-3">
             Limitation of Liability
           </h2>
           <p>
-            SmartToolsCore is not liable for any losses, damages, or issues arising from the 
-            use of our website, tools, or generated content.
+            Under no circumstances shall SmartToolsCore be held liable for any loss or damage, including indirect or consequential loss, arising from the use of this website or reliance on any information provided herein.
           </p>
         </section>
 
@@ -86,7 +90,7 @@ export default function DisclaimerPage() {
             Consent
           </h2>
           <p>
-            By using our website, you hereby consent to this disclaimer and agree to its terms.
+            By using this website, you agree to this Disclaimer and accept its terms.
           </p>
         </section>
 
@@ -96,22 +100,24 @@ export default function DisclaimerPage() {
             Updates
           </h2>
           <p>
-            We may update this disclaimer at any time. Changes will be reflected on this page.
+            We may update this Disclaimer from time to time to reflect changes in our website, policies, or legal requirements. Any updates will be posted on this page.
           </p>
         </section>
 
         {/* Contact */}
-        <section className="bg-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm">
+        <section className="bg-gray-50 border border-gray-200 p-6 rounded-2xl shadow-sm">
           <h2 className="text-lg font-semibold text-gray-900 mb-2">
             Contact Us
           </h2>
-          <p>
-            If you have any questions about this disclaimer, please contact us through our contact page.
+          <p className="mb-2">
+            If you have any questions about this Disclaimer or need support, you can contact us at:
+          </p>
+          <p className="font-medium text-gray-900">
+            support@smarttoolscore.com
           </p>
         </section>
 
       </div>
-
     </main>
   );
 }
