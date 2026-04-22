@@ -1,3 +1,5 @@
+import { blogs } from "@/lib/blogs";
+
 export default async function sitemap() {
   const baseUrl = "https://smarttoolscore.com"; // change if needed
 
@@ -60,11 +62,7 @@ export default async function sitemap() {
       changeFrequency: "daily",
       priority: 0.9,
     },
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      priority: 1,
-    },
+    
     ...blogUrls,
   ];
 }
