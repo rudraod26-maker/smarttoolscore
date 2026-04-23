@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 // import AuthButtons from "@/components/AuthButtons";
+import Script from "next/script";
 
 export const metadata = {
   title: "SmartToolsCore",
@@ -10,6 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4843021554886377"
+          crossorigin="anonymous"></script>
+      </head>
       <body className="bg-gray-50 text-gray-900">
         {/* Navbar */}
         <Navbar />
