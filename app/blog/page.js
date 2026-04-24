@@ -65,7 +65,7 @@ export default function BlogPage() {
 
       {/* Category Filters */}
       <div className="flex gap-3 mb-8 flex-wrap">
-        {["All", "AI", "SEO", "Tools","Business","Tech"].map((cat) => (
+        {["All", "AI", "SEO", "Tools","Business","Tech","Career","Finance"].map((cat) => (
           <button
             key={cat}
             onClick={() => {

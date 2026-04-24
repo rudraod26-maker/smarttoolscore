@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
-import ReCAPTCHA from "react-google-recaptcha";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 const initialForm = {
   name: "",
@@ -44,8 +44,6 @@ export default function ContactPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
   const [cooldownLeft, setCooldownLeft] = useState(0);
-
-  const recaptchaRef = useRef(null);
 
   useEffect(() => {
     emailjs.init({
@@ -119,7 +117,6 @@ export default function ContactPage() {
       newErrors.submit = "Please wait before sending another message.";
     }
 
-    // Honeypot
     if (form.website.trim() !== "") {
       newErrors.submit = "Spam detected.";
     }
@@ -142,11 +139,9 @@ export default function ContactPage() {
         name: form.name.trim(),
         email: form.email.trim().toLowerCase(),
         message: form.message.trim(),
-        "g-recaptcha-response": captchaToken,
+        "cf-turnstile-response": captchaToken,
       };
 
-      // Send only the main template.
-      // Auto-reply should be configured in EmailJS dashboard as a linked template.
       await emailjs.send(
         "YOUR_SERVICE_ID",
         "YOUR_TEMPLATE_ID",
@@ -159,7 +154,6 @@ export default function ContactPage() {
       setForm(initialForm);
       setErrors({});
       setCaptchaToken("");
-      recaptchaRef.current?.reset();
       setCooldownLeft(COOLDOWN_MS);
     } catch (error) {
       const errorText = String(error?.text || error?.message || "");
@@ -263,15 +257,16 @@ export default function ContactPage() {
         </div>
 
         <div>
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-            onChange={(token) => {
+          <Turnstile
+            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+            onSuccess={(token) => {
               setCaptchaToken(token || "");
               setErrors((prev) => ({ ...prev, captcha: "" }));
             }}
-            onExpired={() => setCaptchaToken("")}
+            onExpire={() => setCaptchaToken("")}
+            onError={() => setCaptchaToken("")}
           />
+
           {errors.captcha && (
             <p className="text-red-500 text-sm mt-2">{errors.captcha}</p>
           )}
