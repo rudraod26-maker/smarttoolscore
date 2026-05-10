@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useSwipeable } from "react-swipeable";
 import { blogs } from "@/lib/blogs";
 
 const sliderItems = [
@@ -21,6 +22,15 @@ const sliderItems = [
     href: "/tools/grammar-checker",
     badge: "Free Tool",
   },
+
+  {
+    title: "AI Summarizer",
+    description:
+      "Summarize articles, essays, blogs, and long content instantly using AI.",
+    cta: "Try AI Summarizer",
+    href: "/tools/ai-summarizer",
+    badge: "New Tool",
+  }
 ];
 
 export default function Home() {
@@ -30,40 +40,60 @@ export default function Home() {
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 3);
 
+  const goNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % sliderItems.length);
+  };
+
+  const goPrev = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? sliderItems.length - 1 : prev - 1
+    );
+  };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: goNext,
+    onSwipedRight: goPrev,
+    trackTouch: true,
+    trackMouse: false,
+    preventScrollOnSwipe: true,
+  });
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % sliderItems.length);
+      goNext();
     }, 3500);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <main className="max-w-6xl mx-auto px-6 py-6">
+    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
       {/* Top Slider */}
-      <section className="relative mb-14 overflow-hidden rounded-3xl bg-linear-to-br from-blue-50 via-white to-indigo-50 border border-gray-100 shadow-sm">
-        <div className="relative min-h-105 md:min-h-115">
+      <section
+        {...handlers}
+        className="relative mb-14 overflow-hidden rounded-3xl bg-linear-to-br from-blue-50 via-white to-indigo-50 border border-gray-100 shadow-sm touch-pan-y"
+      >
+        <div className="relative min-h-140 sm:min-h-125 md:min-h-137.5">
           {sliderItems.map((item, index) => (
             <div
               key={item.title}
-              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                index === currentSlide
+              className={`absolute inset-0 transition-all duration-700 ease-in-out ${index === currentSlide
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 translate-x-6 pointer-events-none"
-              }`}
+                }`}
             >
               <div className="h-full flex items-center">
-                <div className="grid md:grid-cols-2 gap-8 items-center w-full p-8 md:p-14">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center w-full p-6 sm:p-8 md:p-14">
                   <div>
                     <span className="inline-flex items-center rounded-full bg-blue-100 text-blue-700 px-4 py-1.5 text-sm font-medium mb-5">
                       {item.badge}
                     </span>
 
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5">
                       {item.title}
                     </h1>
 
-                    <p className="text-lg text-gray-600 max-w-xl mb-8 leading-relaxed">
+                    <p className="text-base sm:text-lg text-gray-600 max-w-xl mb-8 leading-relaxed">
                       {item.description}
                     </p>
 
@@ -76,14 +106,16 @@ export default function Home() {
                   </div>
 
                   <div className="flex justify-center">
-                    <div className="w-full max-w-md rounded-3xl bg-white border border-gray-100 shadow-lg p-6 md:p-8">
+                    <div className="w-full max-w-md rounded-3xl bg-white border border-gray-100 shadow-lg p-5 sm:p-6 md:p-8">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex gap-2">
                           <span className="w-3 h-3 rounded-full bg-red-200"></span>
                           <span className="w-3 h-3 rounded-full bg-yellow-200"></span>
                           <span className="w-3 h-3 rounded-full bg-green-200"></span>
                         </div>
-                        <span className="text-xs text-gray-400">smarttoolscore.com</span>
+                        <span className="text-xs text-gray-400">
+                          smarttoolscore.com
+                        </span>
                       </div>
 
                       <div className="space-y-4">
@@ -114,9 +146,8 @@ export default function Home() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-2.5 rounded-full transition-all ${
-                currentSlide === index ? "w-8 bg-blue-600" : "w-2.5 bg-gray-300"
-              }`}
+              className={`h-2.5 rounded-full transition-all ${currentSlide === index ? "w-8 bg-blue-600" : "w-2.5 bg-gray-300"
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -129,12 +160,14 @@ export default function Home() {
           What We Offer
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="bg-white p-7 rounded-3xl shadow-sm border border-gray-100">
             <div className="bg-blue-100 text-blue-600 w-14 h-14 flex items-center justify-center rounded-2xl mb-5 text-2xl">
               ✨
             </div>
-            <h3 className="font-semibold text-xl mb-3 text-gray-900">AI Paraphrasing</h3>
+            <h3 className="font-semibold text-xl mb-3 text-gray-900">
+              AI Paraphrasing
+            </h3>
             <p className="text-gray-600 leading-relaxed">
               Rewrite your content with better clarity, readability, and natural tone.
             </p>
@@ -144,7 +177,9 @@ export default function Home() {
             <div className="bg-green-100 text-green-600 w-14 h-14 flex items-center justify-center rounded-2xl mb-5 text-2xl">
               ✅
             </div>
-            <h3 className="font-semibold text-xl mb-3 text-gray-900">Grammar Checking</h3>
+            <h3 className="font-semibold text-xl mb-3 text-gray-900">
+              Grammar Checking
+            </h3>
             <p className="text-gray-600 leading-relaxed">
               Correct grammar, spelling, punctuation, and sentence structure quickly.
             </p>
@@ -154,7 +189,9 @@ export default function Home() {
             <div className="bg-purple-100 text-purple-600 w-14 h-14 flex items-center justify-center rounded-2xl mb-5 text-2xl">
               📚
             </div>
-            <h3 className="font-semibold text-xl mb-3 text-gray-900">Helpful Content</h3>
+            <h3 className="font-semibold text-xl mb-3 text-gray-900">
+              Helpful Content
+            </h3>
             <p className="text-gray-600 leading-relaxed">
               Explore useful blogs and guides to improve writing and productivity.
             </p>
@@ -169,10 +206,12 @@ export default function Home() {
             Why Choose SmartToolsCore
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <div className="bg-white p-7 rounded-3xl border border-gray-100 shadow-sm">
               <div className="text-blue-600 text-3xl mb-4">⚡</div>
-              <h3 className="font-semibold text-xl text-gray-900">Fast & Simple</h3>
+              <h3 className="font-semibold text-xl text-gray-900">
+                Fast & Simple
+              </h3>
               <p className="text-gray-600 mt-3 leading-relaxed">
                 Use the tools instantly with a clean interface and no login required.
               </p>
@@ -180,7 +219,9 @@ export default function Home() {
 
             <div className="bg-white p-7 rounded-3xl border border-gray-100 shadow-sm">
               <div className="text-green-600 text-3xl mb-4">🎯</div>
-              <h3 className="font-semibold text-xl text-gray-900">Useful AI Output</h3>
+              <h3 className="font-semibold text-xl text-gray-900">
+                Useful AI Output
+              </h3>
               <p className="text-gray-600 mt-3 leading-relaxed">
                 Get polished results for rewriting and grammar improvement in seconds.
               </p>
@@ -188,7 +229,9 @@ export default function Home() {
 
             <div className="bg-white p-7 rounded-3xl border border-gray-100 shadow-sm">
               <div className="text-purple-600 text-3xl mb-4">🌍</div>
-              <h3 className="font-semibold text-xl text-gray-900">Made for Everyone</h3>
+              <h3 className="font-semibold text-xl text-gray-900">
+                Made for Everyone
+              </h3>
               <p className="text-gray-600 mt-3 leading-relaxed">
                 Designed for students, professionals, creators, and everyday users.
               </p>
@@ -202,7 +245,7 @@ export default function Home() {
         <div className="rounded-3xl bg-gray-900 text-white px-6 md:px-10 py-14 text-center shadow-sm">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Who We Are</h2>
 
-          <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed mb-8">
+          <p className="text-gray-300 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
             SmartToolsCore is a modern platform built to make writing better and easier
             with simple AI-powered tools and useful content for students, professionals,
             and creators.
@@ -230,7 +273,7 @@ export default function Home() {
               href={`/blog/${blog.slug}`}
               className="group flex flex-col sm:flex-row bg-white border rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition"
             >
-              <div className="w-full sm:w-55 sm:self-stretch overflow-hidden">
+              <div className="w-full sm:w-52 sm:self-stretch overflow-hidden">
                 <img
                   src={blog.image}
                   alt={blog.title}
@@ -238,7 +281,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="flex-1 p-5 flex flex-col justify-center">
+              <div className="flex-1 p-4 sm:p-5 flex flex-col justify-center">
                 <div className="flex justify-between items-center mb-2 flex-wrap gap-2">
                   <span className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700">
                     {blog.category || "Blog"}
@@ -257,9 +300,7 @@ export default function Home() {
                   {blog.title}
                 </h3>
 
-                <p className="text-gray-600 text-sm">
-                  {blog.description}
-                </p>
+                <p className="text-gray-600 text-sm">{blog.description}</p>
 
                 <span className="text-blue-600 text-sm mt-3 font-medium group-hover:underline">
                   Read More →

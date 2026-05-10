@@ -11,11 +11,10 @@ export default function Navbar() {
     const isActive =
       pathname === path || (path !== "/" && pathname.startsWith(path + "/"));
 
-    return `px-4 py-2 rounded-lg text-sm font-medium transition ${
-      isActive
+    return `px-4 py-2 rounded-lg text-sm font-medium transition ${isActive
         ? "bg-white text-blue-600 shadow-sm"
         : "text-gray-700 hover:text-blue-600 hover:bg-white"
-    }`;
+      }`;
   };
 
   return (
@@ -35,13 +34,23 @@ export default function Navbar() {
             AI Paraphraser
           </Link>
 
+          <Link
+            href="/tools/ai-summarizer"
+            className={linkClass("/tools/ai-summarizer")}
+          >
+            AI Summarizer
+          </Link>
+
           <Link href="/tools/grammar-checker" className={linkClass("/tools/grammar-checker")}>
             Grammar Checker
           </Link>
 
+
+
           <Link href="/blog" className={linkClass("/blog")}>
             Blogs
           </Link>
+
 
           {/* <AuthButtons /> */}
         </div>

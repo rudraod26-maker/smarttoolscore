@@ -62,6 +62,13 @@ export default async function sitemap() {
       changeFrequency: "daily",
       priority: 0.9,
     },
+
+    {
+      url: `${baseUrl}/tools/ai-summarizer`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
     
     ...blogUrls,
   ];
